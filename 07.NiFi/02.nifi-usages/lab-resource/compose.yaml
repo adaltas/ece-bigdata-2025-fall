@@ -1,0 +1,29 @@
+services:
+
+  nifi:
+    image: "apache/nifi:latest"
+    container_name: nifi-ece-2025
+    ports:
+      - "8443:8443"
+    environment:
+      NIFI_WEB_HTTPS_PORT: "8443"
+      SINGLE_USER_CREDENTIALS_USERNAME: <NiFi username>
+      SINGLE_USER_CREDENTIALS_PASSWORD: <NiFi password>
+
+  db:
+    image: postgres:16
+    container_name: postgres-16
+    restart: always
+    shm_size: 128mb
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=<postgres username>
+      - POSTGRES_PASSWORD=<postgres password>
+      - POSTGRES_DB=ece_db
+  
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
