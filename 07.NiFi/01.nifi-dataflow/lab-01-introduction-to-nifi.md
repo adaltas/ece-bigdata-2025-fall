@@ -1,5 +1,5 @@
 ---
-duration: >=1h
+duration: 1h+
 ---
 
 # Lab: Introduction to NiFi
