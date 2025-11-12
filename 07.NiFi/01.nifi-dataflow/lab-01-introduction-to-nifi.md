@@ -78,16 +78,21 @@ Here we're going to create our first simple data flow consisting of only two pro
 
 ## Create source file in the contanier
 
-Inside the NiFi container add two sub-directories in the home directory, `~/source` and `~/sink`. And then add a "hello-nifi.txt" file to the source directory.  
+Inside the NiFi container add two sub-directories in the home directory, `/home/nifi/source` and `/home/nifi/sink`. And then add a "hello-nifi.txt" file to the source directory.  
 
 ```bash
 docker exec -it nifi-ece-2025 /bin/bash
-cd ~
+```
+
+When inside the container, run the following:
+
+```bash
+cd /home/nifi
 mkdir source && mkdir sink
 ```
 ```bash
 cat <<EOF > hello-nifi.txt
-Hello DSTI
+Hello ECE
 EOF
 ```
 
@@ -104,12 +109,12 @@ EOF
 
    <img src="./assets/lab-01-list_fetch_pipeline.png" alt="drawing" width="80%"/>
 
-8. Configure the GetFile processor to "get" files from your `~/source` directory.
+8. Configure the GetFile processor to "get" files from your `/home/nifi/source` directory.
 9. While configuring the GetFile processor it is important to note that the 'Keep Source File' setting defaults to 'false'. This means that once the processor has gotten the file, it will attempt to delete the origin file. For now we'll leave this setting as false.
 
    <img src="./assets/lab-01-getFile_config.png" alt="drawing" width="80%"/>
 
-10. Configure the PutFile processor to "put" files in your `~/sink` directory.
+10. Configure the PutFile processor to "put" files in your `/home/nifi/sink` directory.
 
       <img src="./assets/lab-01-putFile_config.png" alt="drawing" width="80%"/>
 
