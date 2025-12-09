@@ -1,5 +1,8 @@
 # Big Data Introduction – Final Project Instructions
 
+## Submission Deadline
+Before 23:59 on 21/12.
+
 ## Overview
 
 For your final evaluation, you will complete **one** of the two project options below. The goal is to demonstrate your understanding of Big Data concepts, tools, and architectures covered throughout the course.
